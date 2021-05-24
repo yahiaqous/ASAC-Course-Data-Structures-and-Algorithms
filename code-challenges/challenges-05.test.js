@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable no-trailing-spaces */
 'use strict';
 
@@ -11,23 +12,12 @@ E.g. [ { firstName:"Jane", lastName:"Doe" }, { firstName:"James", lastName:"Bond
 should convert to ["Jane Doe", "James Bond"]
 Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
-
-describe('Testing challenge 1', () => {
-  test('It should convert object to full name string', () => {
-
-    const people = [{ firstName: 'Jane', lastName: 'Doe' }, { firstName: 'James', lastName: 'Bond' }];
-
-    expect(toLastNames(people)).toStrictEqual(['Jane Doe', 'James Bond']);
-
-  });
-});
-
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
   // Solution code here...
-  let localArray=[];
+  let localArray = [];
   people.map((element) => {
-    localArray.push(element.firstName+ ' '+element.lastName);
+    localArray.push(element.firstName + ' ' + element.lastName);
   });
   return localArray;
 };
@@ -37,22 +27,14 @@ CHALLENGE 2
 
 Write a function named addValues that, given an array of numbers as input, uses reduce to add the values in the array.
 
-describe('Testing challenge 2', () => {
-  test('It should add the values of an array', () => {
-    expect(addValues([1, 2, 3, 4, 5])).toStrictEqual(15);
-    expect(addValues([])).toStrictEqual(0);
-    expect(addValues([1, 2, 3, 4, -5])).toStrictEqual(5);
-  });
-});
-
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr) => {
   // Solution code here...
-  let total = arr.reduce((acc,val)=>{
-    acc=acc+val;
+  let total = arr.reduce((acc, val) => {
+    acc = acc + val;
     return acc;
-  },0);
+  }, 0);
   return total;
 };
 
@@ -77,6 +59,11 @@ describe('Testing challenge 3', () => {
 
 const addPurchases = (arr) => {
   // Solution code here...
+  let localArray = arr.reduce((acc, val) => {
+    acc = acc + val.purchasePrice;
+    return acc;
+  }, 0);
+  return localArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -85,16 +72,36 @@ CHALLENGE 4
 Write a function named countNumberOfElements that, given an array as input, uses reduce to count the number of elements in the array.
 
 Note: You may not use the array's built-in length property.
+
+describe('Testing challenge 4', () => {
+  test('It should return the length of the array', () => {
+    expect(countNumberOfElements([1, 2, 3, 4, 5])).toStrictEqual(5);
+  });
+});
+
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
+  let localArray = arr.reduce((acc, val) => {
+    acc = acc + 1;
+    return acc;
+  }, 0);
+  return localArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
 Write a function named returnNames that, given the Star Wars data, below, uses reduce to return an array containing the names of the characters.
+
+describe('Testing challenge 5', () => {
+  test('It should return an array continaing the names of the characters', () => {
+    expect(returnNames(starWarsData)).toStrictEqual([ 'Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa' ]);
+    expect(returnNames(starWarsData).length).toStrictEqual(5);
+  });
+});
+
 ------------------------------------------------------------------------------------------------ */
 
 let starWarsData = [{
@@ -115,7 +122,8 @@ let starWarsData = [{
   skin_color: 'gold',
   eye_color: 'yellow',
   birth_year: '112BBY',
-  gender: 'n/a'},
+  gender: 'n/a'
+},
 {
   name: 'R2-D2',
   height: '96',
@@ -149,6 +157,11 @@ let starWarsData = [{
 
 const returnNames = (arr) => {
   // Solution code here...
+  let localArray = arr.reduce((acc, val) => {
+    acc.push(val.name);
+    return acc;
+  },[]);
+  return localArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -157,13 +170,25 @@ CHALLENGE 6
 Write a function named reversedString that takes in a string and returns a string with the letters in reverse order.
 
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
+
+describe('Testing challenge 6', () => {
+  test('It should return the string with the characters in reverse order', () => {
+    expect(reversedString('Code 301')).toStrictEqual('103 edoC');
+  });
+});
+
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
   // Solution code here...
+
+  let localArray = str.split('').reduce((acc, val) => {
+    return val + acc;
+  });
+  return localArray;
 };
 
-/* ------------------------------------------------------------------------------------------------
+/* locaArray.push(item.name.split("").reverse().join(""));------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
 Write a function named countNumberOfChildren that, given the array of characters, below, uses reduce to return the total number of children in the data set.
@@ -316,7 +341,7 @@ DO NOT CHANGE any of the below code.
 Run your tests from the console: jest challenges-09.test.js
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should convert object to full name string', () => {
 
     const people = [{ firstName: 'Jane', lastName: 'Doe' }, { firstName: 'James', lastName: 'Bond' }];
@@ -326,7 +351,7 @@ xdescribe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should add the values of an array', () => {
     expect(addValues([1, 2, 3, 4, 5])).toStrictEqual(15);
     expect(addValues([])).toStrictEqual(0);
@@ -336,25 +361,25 @@ xdescribe('Testing challenge 2', () => {
 
 describe('Testing challenge 3', () => {
   test('It should add the purchase price', () => {
-    expect(addPurchases([{item: 'switch', purchasePrice: 399}, {item: 'toothpaste', purchasePrice: 2}])).toStrictEqual(401);
+    expect(addPurchases([{ item: 'switch', purchasePrice: 399 }, { item: 'toothpaste', purchasePrice: 2 }])).toStrictEqual(401);
     expect(addPurchases([])).toStrictEqual(0);
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return the length of the array', () => {
     expect(countNumberOfElements([1, 2, 3, 4, 5])).toStrictEqual(5);
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return an array continaing the names of the characters', () => {
-    expect(returnNames(starWarsData)).toStrictEqual([ 'Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa' ]);
+    expect(returnNames(starWarsData)).toStrictEqual(['Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa']);
     expect(returnNames(starWarsData).length).toStrictEqual(5);
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return the string with the characters in reverse order', () => {
     expect(reversedString('Code 301')).toStrictEqual('103 edoC');
   });
@@ -368,7 +393,7 @@ xdescribe('Testing challenge 7', () => {
 
 xdescribe('Testing challenge 8', () => {
   test('It should return the average of the numbers in the array', () => {
-    expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
+    expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85])).toStrictEqual(64);
   });
 });
 
@@ -386,7 +411,7 @@ xdescribe('Testing challenge 10', () => {
 
 xdescribe('Testing challenge 11', () => {
   test('It should return an array containing the names of the children', () => {
-    expect(extractChildren(characters)).toStrictEqual([ 'Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras' ]);
+    expect(extractChildren(characters)).toStrictEqual(['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras']);
     expect(extractChildren(characters).length).toStrictEqual(10);
   });
 });
