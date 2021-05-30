@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-empty */
 /* eslint-disable no-trailing-spaces */
@@ -70,7 +71,7 @@ const count = (target, input) => {
   let hit = 0;
   let result = input.map((item) => {
     for (let i = 0; i < item.length; i++) {
-      if (item[i] == target) { hit=hit+1;}
+      if (item[i] == target) { hit = hit + 1; }
     }
   });
   return hit;
@@ -97,7 +98,13 @@ describe('Testing challenge 3', () => {
 
 const totalSum = (input) => {
   // Solution code here...
-  
+  let sum = 0;
+  let total = input.map((item) => {
+    for (let i = 0; i < item.length; i++) {
+      sum = sum + item[i];
+    }
+  });
+  return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -110,10 +117,39 @@ This function should first remove any elements that are not numbers or are not d
 This function should then raise 2 to the power of the resulting numbers, returning an array of arrays.
 
 For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
+
+describe('Testing challenge 4', () => {
+  test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
+    expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
+  });
+
+  test('It should return an empty array if none of the numbers are divisible by five', () => {
+    expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10, 15]])).toStrictEqual([[], [32, 1024, 32768]]);
+  });
+
+  test('It should return an empty array if the values are not numbers', () => {
+    expect(divisibleByFiveTwoToThePower([['one', 'two', 'five'], ['5', '10', '15'], [5]])).toStrictEqual([[], [], [32]]);
+  });
+});
+
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  let result = [];
+  let mainArray = input.map((item) => {
+    let localArray = [];
+    for (let i = 0; i < item.length; i++) {
+      if (typeof item[i] === 'number' && item[i] % 5 === 0) {
+        let toThePower = Math.pow(2, item[i]);
+        localArray.push(toThePower);
+      }
+    }
+    // if (localArray.length != 0) {
+    result.push(localArray);
+    // }
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -125,6 +161,14 @@ returns the names of the characters whose gender is either male or female.
 The names should be combined into a single string with each character name separated by "and".
 
 For example, "C-3PO and Luke Skywalker".
+
+describe('Testing challenge 5', () => {
+  test('It should return only characters that are male or female', () => {
+    expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
+    expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
+  });
+});
+
 ------------------------------------------------------------------------------------------------ */
 
 let starWarsData = [{
@@ -180,16 +224,41 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  let result = [];
+  let mapping = data.map((item) => {
+    if (item.gender == 'female' || item.gender == 'male') {
+      result.push(item.name);
+    }
+  });
+  let names = result.join(' and ');
+  return names;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 
 
 Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter, map and reduce to return the name of the shortest character.
+
+describe('Testing challenge 6', () => {
+  test('It should return the name of the shortest character', () => {
+    expect(findShortest(starWarsData)).toStrictEqual('R2-D2');
+  });
+});
+
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
   // Solution code here...
+  let reducing = data.reduce((a, b) => {
+    let aSplitter = a.name.split('');
+    let bSplitter = b.name.split('');
+    if (aSplitter.length > bSplitter.length) {
+      return a.name;
+    } else {
+      return b.name;
+    }
+  });
+  return reducing;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -223,7 +292,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should add all the numbers in the arrays', () => {
     const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]];
 
@@ -231,7 +300,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
     expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
   });
@@ -245,14 +314,14 @@ xdescribe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return only characters that are male or female', () => {
     expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
     expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return the name of the shortest character', () => {
     expect(findShortest(starWarsData)).toStrictEqual('R2-D2');
   });
