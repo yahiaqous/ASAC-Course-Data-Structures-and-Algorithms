@@ -88,17 +88,15 @@ describe('Testing challenge 3', () => {
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   // Solution code here...
-  // let sum = matrix.forEach(element => {
-  //   let total = element.reduce(function (a, b) {
-  //     return a + b;
-  //   }, 0);
-  //   return total;
-  // });
-  // let total = sum.reduce(function (a, b) {
-  //   return a + b;
-  // }, 0);
-  // return total;
+  let total = 0;
 
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+
+      total = total + matrix[i][j];
+    }
+  }
+  return total;
 };
 
 
@@ -126,7 +124,16 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
+  let localArray = [];
 
+  for (let i = 0; i < hoursOpen.length; i++) {
+    let hourTotal = 0;
+    for (let j = 0; j < cookieStores.length; j++) {
+      hourTotal += cookieStores[j][i];
+    }
+    localArray.push(hourTotal);
+  }
+  return localArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -141,6 +148,11 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+  let localArray = [];
+  hours.forEach((item, index) => {
+    localArray.push({ 'sales': data[index] + ' cookies', 'time': item });
+  });
+  return localArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,6 +178,16 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  let total = 0;
+
+  arr.map((val) => {
+    val.items.map((i) => {
+      if (i.name === 'Treats') {
+        total = i.quantity;
+      }
+    });
+  });
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
