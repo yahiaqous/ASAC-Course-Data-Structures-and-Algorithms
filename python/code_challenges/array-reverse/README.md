@@ -2,4 +2,14 @@
 
 **Task:** Write a function called reverseArray which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
 
+&nbsp;
+
 **Whiteboard link:** <https://miro.com/app/board/o9J_l5RQrH8=/>
+
+&nbsp;
+
+**PR Link:**
+
+&nbsp;
+
+![array-reverse.jpg](array-reverse.jpg)
