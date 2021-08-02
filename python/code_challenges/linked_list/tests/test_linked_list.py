@@ -53,9 +53,6 @@ def test_kth_greater_than_the_length_of_the_linked_list():
     expected = "Input is greater than the length of the linked list"
     assert actual == expected
 
-
-
-#Where k and the length of the list are the same
 def test_k_same_length_as_list():
     actual = list.kth(7)
     expected = 1
