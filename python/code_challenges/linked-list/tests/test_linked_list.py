@@ -145,26 +145,53 @@ def test_insert_node_after_the_last_node():
 
 
 # CC07
-# def test_kth_greater_than_the_length_of_the_linked_list():
-#     actual = list.kth(10)
-#     expected = "Input is greater than the length of the linked list"
-#     assert actual == expected
+def test_kth_greater_than_the_length_of_the_linked_list():
+    node1=Node(1)
+    node2=Node(2)
+    node3=Node(3)
+    node4=Node(4)
+    linked_list = LinkedList()
+    linked_list.head=node1
+    node1.next=node2
+    node2.next=node3
+    node3.next=node4
+    actual = linked_list.kth(10)
+    expected = "Input is greater than the length of the linked list"
+    assert actual == expected
 
-# def test_k_same_length_as_list():
-#     actual = list.kth(7)
-#     expected = 1
-#     assert actual == expected
+def test_k_same_length_as_list():
+    node1=Node(1)
+    node2=Node(2)
+    node3=Node(3)
+    node4=Node(4)
+    linked_list = LinkedList()
+    linked_list.head=node1
+    node1.next=node2
+    node2.next=node3
+    node3.next=node4
+    actual = linked_list.kth(4)
+    expected = None
+    assert actual == expected
 
-# def test_k_is_not_postive_integer():
-#     actual = list.kth(-3)
-#     expected = "Input k is not a positive integer"
-#     assert actual == expected
+def test_k_is_not_postive_integer():
+    node1=Node(1)
+    node2=Node(2)
+    node3=Node(3)
+    node4=Node(4)
+    linked_list = LinkedList()
+    linked_list.head=node1
+    node1.next=node2
+    node2.next=node3
+    node3.next=node4
+    actual = linked_list.kth(-3)
+    expected = "Input k is not a positive integer"
+    assert actual == expected
 
-# def test_linked_list_size_1():
-#     alone_node = Node(5)
-#     linked_list=LinkedList()
-#     linked_list.head = alone_node
+def test_linked_list_size_1():
+    node1= Node(5)
+    linked_list=LinkedList()
+    linked_list.head = node1
 
-#     actual = linked_list.kth(0)
-#     expected = 5
-#     assert actual == expected
+    actual = linked_list.kth(0)
+    expected = 5
+    assert actual == expected

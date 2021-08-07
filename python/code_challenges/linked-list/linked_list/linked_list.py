@@ -78,45 +78,21 @@ class LinkedList():
 
 # CC07
     def kth(self,number):
-        # current = self.head
-        # counter = 0
-        # value = 0
-
-        # def recursion_method():
-        #     nonlocal current
-        #     nonlocal counter
-        #     nonlocal value
-
-        #     if current.next != None:
-        #         # print('hi')
-        #         current = current.next
-        #         counter +=1
-        #         if number == counter:
-        #             # print('bye')
-        #             value = current
-        #             print(current)
-        #         recursion_method()
-
-        # verb = recursion_method()
-        # print(value)
-        # return value
-
         current = self.head
         list_length=1
         while current.next:
             list_length+=1
             current=current.next
         current=self.head
-        # print(list_length)
+
         if number > list_length:
             return("Input is greater than the length of the linked list")
         elif number < 0:
             return("Input k is not a positive integer")
         target = list_length - number - 1
-        print(target)
+
         for i in range(list_length):
             if i == target:
-                print(current.value)
                 return(current.value)
             else:
                 current=current.next
@@ -156,7 +132,10 @@ if __name__ == "__main__":
     linked_list.insert_after(13,9)
     print(linked_list)
 
-
+# CC07
+    print(linked_list.kth(16))
+    print(linked_list.kth(14))
+    print(linked_list.kth(-5))
 
 
 
