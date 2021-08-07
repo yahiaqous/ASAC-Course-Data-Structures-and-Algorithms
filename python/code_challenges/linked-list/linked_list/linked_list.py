@@ -98,6 +98,27 @@ class LinkedList():
                 current=current.next
 
 
+# CC08
+    def zip_lists(self,list1,list2):
+        output_list=LinkedList()
+        current1 = list1.head
+        current2 = list2.head
+
+        while current1 and current2  :
+            output_list.append(current1)
+            output_list.append(current2)
+            current1 = current1.next
+            current2 = current2.next
+
+        while current1:
+            output_list.append(current1)
+            current1 = current1.next
+        while current2:
+            output_list.append(current2)
+            current2 = current2.next
+
+        return output_list
+
 
 if __name__ == "__main__":
 
@@ -137,5 +158,14 @@ if __name__ == "__main__":
     print(linked_list.kth(14))
     print(linked_list.kth(-5))
 
-
+# CC08
+    linked_list1=LinkedList()
+    linked_list2=LinkedList()
+    linked_list1.head = node5
+    linked_list2.head = node3
+    print(linked_list1)
+    print(linked_list2)
+    linked_list3= LinkedList()
+    linked_list3=linked_list3.zip_lists(linked_list1,linked_list2)
+    print(linked_list3)
 

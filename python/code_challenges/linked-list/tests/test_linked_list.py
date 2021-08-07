@@ -195,3 +195,58 @@ def test_linked_list_size_1():
     actual = linked_list.kth(0)
     expected = 5
     assert actual == expected
+
+# CC08
+def test_zip_lists_same_length():
+    node1=Node(1)
+    node2=Node(2)
+    node3=Node(3)
+    node4=Node(4)
+    node1.next=node2
+    node2.next=node3
+    node3.next=node4
+
+    linked_list1 = LinkedList()
+    linked_list1.head=node1
+    linked_list2 = LinkedList()
+    linked_list2.head=node1
+    linked_list3 = LinkedList()
+    linked_list3 = linked_list3.zip_lists(linked_list1,linked_list2)
+
+    assert linked_list3.__str__() == "1 -> 1 -> 2 -> 2 -> 3 -> 3 -> 4 -> 4 -> None"
+
+def test_zip_lists_first_one_longer():
+    node1=Node(1)
+    node2=Node(2)
+    node3=Node(3)
+    node4=Node(4)
+    node1.next=node2
+    node2.next=node3
+    node3.next=node4
+
+    linked_list1 = LinkedList()
+    linked_list1.head=node1
+    linked_list2 = LinkedList()
+    linked_list2.head=node3
+    linked_list3 = LinkedList()
+    linked_list3 = linked_list3.zip_lists(linked_list1,linked_list2)
+
+    assert linked_list3.__str__() == "1 -> 3 -> 2 -> 4 -> 3 -> 4 -> None"
+
+def test_zip_lists_second_one_longer():
+    node1=Node(1)
+    node2=Node(2)
+    node3=Node(3)
+    node4=Node(4)
+    node1.next=node2
+    node2.next=node3
+    node3.next=node4
+
+    linked_list1 = LinkedList()
+    linked_list1.head=node3
+    linked_list2 = LinkedList()
+    linked_list2.head=node1
+    linked_list3 = LinkedList()
+    linked_list3 = linked_list3.zip_lists(linked_list1,linked_list2)
+
+    assert linked_list3.__str__() == "3 -> 1 -> 4 -> 2 -> 3 -> 4 -> None"
