@@ -4,12 +4,8 @@
 
 &nbsp;
 
-**Whiteboard link:** <https://miro.com/app/board/o9J_l5e-FAk=/>
+**PR Link:** <https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/23>
 
 &nbsp;
 
-**PR Link:** <https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/19>
-
-&nbsp;
-
-![array-insert-shift.JPG](array-insert-shift.JPG)
+![array-insert-shift.jpg](array-insert-shift.jpg)
