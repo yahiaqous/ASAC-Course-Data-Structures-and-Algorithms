@@ -36,6 +36,49 @@ class LinkedList():
         string+="None"
         return string
 
+# CC06
+    def append(self,new_value):
+        node = Node(new_value)
+        current=self.head
+        if current:
+            while current.next:
+                current = current.next
+            current.next = node
+        else:
+            self.head = node
+
+    def insert_before(self,value, new_value):
+        node = Node(new_value)
+        current = self.head
+        prev =self.head
+
+        while current:
+            if current.value == value:
+                if current==prev:
+                    self.head = node
+                    node.next = current
+                    break
+                else:
+                    prev.next = node
+                    node.next = current
+            prev = current
+            current = current.next
+
+
+    def insert_after(self,value, new_value):
+        node = Node(new_value)
+        current = self.head
+
+        while current:
+            if current.value == value:
+                node.next = current.next
+                current.next = node
+                break
+            current=current.next
+
+
+
+
 
 if __name__ == "__main__":
 
@@ -52,6 +95,25 @@ if __name__ == "__main__":
     node3.next=node4
     node4.next=node5
     linked_list.insert(6)
+    # print(linked_list)
+    # print(linked_list.includes(7))
+
+# CC06
+    linked_list.append(7)
+    # print(linked_list)
+    linked_list.append(11)
+    linked_list.append(13)
+    linked_list.insert_before(5,8)
     print(linked_list)
-    print(linked_list.includes(7))
+    linked_list.insert_before(6,5)
+    print(linked_list)
+    linked_list.insert_before(5,19)
+    print(linked_list)
+    linked_list.insert_after(3,12)
+    linked_list.insert_after(13,9)
+    print(linked_list)
+
+
+
+
 
