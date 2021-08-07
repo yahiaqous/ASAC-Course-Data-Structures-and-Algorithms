@@ -72,15 +72,6 @@ class LinkedList():
 
 
 if __name__ == "__main__":
-    # CC05
-    # first_instant = LinkedList('hello')
-    # print (str(first_instant))
-    # print(first_instant.next)
-
-    # CC06
-    # new = LinkedList()
-    # new.append(3)
-    # print(new)
 
     # CC07
     node1 = Node(1)
