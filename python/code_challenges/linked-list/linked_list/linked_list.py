@@ -1,3 +1,4 @@
+#CC05
 class Node:
     def __init__(self,value=""):
         self.value=value
@@ -35,7 +36,10 @@ class LinkedList():
         string+="None"
         return string
 
+
 if __name__ == "__main__":
+
+#CC05
     node1 = Node(1)
     node2 = Node(2)
     node3 = Node(3)
