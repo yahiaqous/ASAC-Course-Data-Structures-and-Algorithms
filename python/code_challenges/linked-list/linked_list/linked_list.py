@@ -1,4 +1,3 @@
-#CC05
 class Node:
     def __init__(self,value=""):
         self.value=value
@@ -8,10 +7,20 @@ class Node:
 
 
 class LinkedList():
-
     def __init__(self):
         self.head = None
 
+    def __str__(self):
+        current = self.head
+        string = ''
+
+        while current:
+            string+=str(current)+' -> '
+            current=current.next
+        string+="None"
+        return string
+
+#CC05
     def insert(self, value):
         node = Node(value)
         if self.head:
@@ -26,15 +35,6 @@ class LinkedList():
             current = current.next
         return False
 
-    def __str__(self):
-        current = self.head
-        string = ''
-
-        while current:
-            string+=str(current)+' -> '
-            current=current.next
-        string+="None"
-        return string
 
 # CC06
     def append(self,new_value):
@@ -64,7 +64,6 @@ class LinkedList():
             prev = current
             current = current.next
 
-
     def insert_after(self,value, new_value):
         node = Node(new_value)
         current = self.head
@@ -77,6 +76,50 @@ class LinkedList():
             current=current.next
 
 
+# CC07
+    def kth(self,number):
+        # current = self.head
+        # counter = 0
+        # value = 0
+
+        # def recursion_method():
+        #     nonlocal current
+        #     nonlocal counter
+        #     nonlocal value
+
+        #     if current.next != None:
+        #         # print('hi')
+        #         current = current.next
+        #         counter +=1
+        #         if number == counter:
+        #             # print('bye')
+        #             value = current
+        #             print(current)
+        #         recursion_method()
+
+        # verb = recursion_method()
+        # print(value)
+        # return value
+
+        current = self.head
+        list_length=1
+        while current.next:
+            list_length+=1
+            current=current.next
+        current=self.head
+        # print(list_length)
+        if number > list_length:
+            return("Input is greater than the length of the linked list")
+        elif number < 0:
+            return("Input k is not a positive integer")
+        target = list_length - number - 1
+        print(target)
+        for i in range(list_length):
+            if i == target:
+                print(current.value)
+                return(current.value)
+            else:
+                current=current.next
 
 
 
