@@ -19,35 +19,6 @@ class LinkedList():
         string += "None"
         return string
 
-    # CC05
-    def insert(self, value):
-        node = Node(value)
-        if self.head:
-            node.next=self.head
-        self.head = node
-
-    def some_method(self):
-        pass
-
-
-
-    # CC06
-    # We stuck here for more then two hours
-    def append(self,value=''):
-        # print(value)
-        node = Node(value)
-        current = self.head
-
-        while current.next != None:
-            current = current.next
-        current.next = node
-
-    def insert_before(self,value, new_value):
-        pass
-
-    def insert_after():
-        pass
-
     # CC07
     def kth(self,number):
         # current = self.head
