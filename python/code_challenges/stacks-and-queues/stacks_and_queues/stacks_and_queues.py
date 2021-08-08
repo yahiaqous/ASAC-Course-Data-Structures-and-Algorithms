@@ -9,6 +9,7 @@ class Node():
 class StackEmptyException(Exception):
 	pass
 
+# CC10
 class Stack():
   def __init__(self, node = None):
       self.top = node
@@ -23,7 +24,6 @@ class Stack():
         string+="None"
         return string
 
-# CC10
   def push(self,value):
     node = Node(value)
     node.next = self.top
@@ -48,8 +48,6 @@ class Stack():
     return (self.top == None)
 
 
-
-
 class Queue():
   def __init__(self, node = None):
       self.front = node
@@ -65,7 +63,6 @@ class Queue():
         string+="None"
         return string
 
-# CC10
   def enqueue(self,value):
     node = Node(value)
     node.next = self.front
@@ -80,7 +77,6 @@ class Queue():
     else:
       raise Exception('Queue is Empty')
 
-
   def peek(self):
     if self.peek:
       return (self.front.value)
@@ -91,6 +87,45 @@ class Queue():
     return (self.front == None or self.rear == None)
 
 
+# CC11
+class PseudoQueue():
+  def __init__(self, node = None):
+      self.front = node
+      self.rear = node
+      self.stack1=Stack()
+      self.stack2=Stack()
+
+  def __str__(self):
+      current = self.front
+      string = ''
+
+      while current:
+          string+=str(current)+' -> '
+          current=current.next
+      string+="None"
+      return string
+
+  def enqueue(self,value):
+    self.stack1.push(value)
+    self.stack1.top.next = self.front
+    self.front = self.stack1.top
+
+  def dequeue(self):
+    current = self.front
+    while current.next != self.rear:
+      current = current.next
+
+    self.stack1.push(current.next)
+    output = self.stack1.pop()
+    self.rear=current
+    self.rear.next=None
+    return output
+
+  def peek(self):
+    if self.peek:
+      return (self.front.value)
+    else:
+      raise Exception('Queue is Empty')
 
 if __name__=="__main__":
 
@@ -104,29 +139,42 @@ if __name__=="__main__":
   node1.next=node2
   node2.next=node3
   node3.next=node4
-  print(stack)
+  # print(stack)
   stack.push(6)
-  print(stack)
+  # print(stack)
   stack.pop()
   stack.pop()
-  print(stack)
-  print(stack.peek())
-  print(stack.is_empty())
+  # print(stack)
+  # print(stack.peek())
+  # print(stack.is_empty())
 
-
-# CC10
   queue=Queue()
   queue.front=node1
   queue.rear=node4
   node1.next=node2
   node2.next=node3
   node3.next=node4
-  print(queue)
+  # print(queue)
   queue.enqueue(9)
-  print(queue)
+  # print(queue)
   queue.dequeue()
   queue.dequeue()
-  print(queue)
-  print(queue.peek())
-  print(queue.is_empty())
+  # print(queue)
+  # print(queue.peek())
+  # print(queue.is_empty())
 
+# CC11
+  psuedo_queue = PseudoQueue()
+  psuedo_queue.front=node1
+  psuedo_queue.rear=node4
+  node1.next=node2
+  node2.next=node3
+  node3.next=node4
+  print(psuedo_queue)
+  psuedo_queue.enqueue(5)
+  psuedo_queue.enqueue(5)
+  print(psuedo_queue)
+  print(psuedo_queue.dequeue())
+  print(psuedo_queue)
+  print(psuedo_queue.dequeue())
+  print(psuedo_queue)

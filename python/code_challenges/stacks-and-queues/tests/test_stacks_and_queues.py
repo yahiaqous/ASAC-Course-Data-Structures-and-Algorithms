@@ -1,5 +1,5 @@
 import pytest
-from stacks_and_queues.stacks_and_queues import Node, Stack,Queue,StackEmptyException
+from stacks_and_queues.stacks_and_queues import Node, Stack,Queue,StackEmptyException,PseudoQueue
 
 # CC10
 def test_push_onto_stack():
@@ -137,3 +137,53 @@ def test_raises_exception_on_empty_queue_dequeue_or_peek():
   queue=Queue()
   with pytest.raises(StackEmptyException, match ="Stack is Empty"):
     queue.dequeue()
+
+
+# CC11
+def test_enqueue_into_pseudoqueue():
+  node1 = Node(1)
+  node2 = Node(2)
+  node3 = Node(3)
+  pseudoqueue=PseudoQueue()
+  pseudoqueue.top=node1
+  node1.next=node2
+  node2.next=node3
+  pseudoqueue.enqueue(4)
+  assert pseudoqueue.front.value == 4
+
+def test_multiple_enqueue_into_pseudoqueue():
+  node1 = Node(1)
+  node2 = Node(2)
+  node3 = Node(3)
+  pseudoqueue=PseudoQueue()
+  pseudoqueue.top=node1
+  node1.next=node2
+  node2.next=node3
+  pseudoqueue.enqueue(4)
+  assert pseudoqueue.front.value == 4
+  pseudoqueue.enqueue(6)
+  assert pseudoqueue.front.value == 6
+
+def test_dequeue_out_of_psuedoqueue():
+  node1 = Node(1)
+  node2 = Node(2)
+  node3 = Node(3)
+  psuedoqueue=Queue()
+  psuedoqueue.front=node1
+  node1.next=node2
+  node2.next=node3
+  psuedoqueue.dequeue()
+  assert psuedoqueue.front.value == 2
+
+def test_empty_a_equeue_after_multiple_dequeues_psuedoqueue():
+  node1 = Node(1)
+  node2 = Node(2)
+  node3 = Node(3)
+  psuedoqueue=Queue()
+  psuedoqueue.front=node1
+  node1.next=node2
+  node2.next=node3
+  psuedoqueue.dequeue()
+  psuedoqueue.dequeue()
+  psuedoqueue.dequeue()
+  assert psuedoqueue.is_empty
