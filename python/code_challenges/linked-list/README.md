@@ -35,3 +35,29 @@ Write the following methods for the Linked List class:
 ### **PR Link**
 
 <https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/39>
+
+&nbsp;
+
+## Code Challenge 07
+
+### **Feature Tasks**
+
+Write the following method for the Linked List class:
+
+-   **kth from end**
+
+    argument: a number, k, as a parameter.
+
+    adds a new node with the given value to the end of the list
+
+&nbsp;
+
+### **WhiteBoard**
+
+![CC07](pictures/CC07.JPG)
+
+&nbsp;
+
+### **PR Link**
+
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/40>
