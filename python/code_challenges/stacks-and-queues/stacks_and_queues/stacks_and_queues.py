@@ -215,6 +215,32 @@ class AnimalShelter():
       raise Exception('Animal Shelter is Empty')
 
 
+# CC13
+def validate_brackets(string):
+
+  starting_symbols = ["[","{","("]
+  ending_symbols = ["]","}",")"]
+  check_list = []
+
+  for i in string:
+    if i in starting_symbols:
+      check_list.append(i)
+
+    elif i in ending_symbols:
+      index = ending_symbols.index(i)
+
+      if ((len(check_list) > 0) and (starting_symbols[index] == check_list[len(check_list)-1])):
+        check_list.pop()
+      else:
+        return False
+
+  if len(check_list) == 0:
+    return True
+  else:
+    return False
+
+
+
 if __name__=="__main__":
 
 # CC10
@@ -278,8 +304,12 @@ if __name__=="__main__":
   animal1.next=animal2
   animal2.next=animal3
   animal3.next=animal4
-  print(animal_shelter)
+  # print(animal_shelter)
   animal_shelter.enqueue('dog3','dog')
-  print(animal_shelter)
-  print(animal_shelter.dequeue('cat'))
-  print(animal_shelter)
+  # print(animal_shelter)
+  # print(animal_shelter.dequeue('cat'))
+  # print(animal_shelter)
+
+# CC13
+  print(validate_brackets('[({}]'))
+  print(validate_brackets('()[[Extra Characters]]'))
