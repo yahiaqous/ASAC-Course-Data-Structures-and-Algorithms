@@ -1,6 +1,8 @@
 # Stacks and Queues
 
-## Challenge Summary
+## Code Challenge 12
+
+### **Challenge Summary**
 
 Create a new class called pseudo queue.
 
@@ -10,11 +12,11 @@ Create a new class called pseudo queue.
 
 - Internally, utilize 2 Stack instances to create and manage the queue
 
-## Whiteboard Process
+### **Whiteboard Process**
 
 ![CC11 Whiteboard](pictures/CC11.jpg)
 
-## Solution
+### **Solution**
 
 Try this code:
 
@@ -72,4 +74,4 @@ representing whether or not the brackets in the string are balanced
 
 ### **PR Link**
 
-<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/41>
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/42>
