@@ -1,4 +1,6 @@
-# Challenge Summary
+# Stacks and Queues
+
+## Challenge Summary
 
 Create a new class called pseudo queue.
 
@@ -45,3 +47,29 @@ Try this code:
       print(psuedo_queue.dequeue())
 
       print(psuedo_queue)
+
+&nbsp;
+
+## Code Challenge 13
+
+### **Feature Tasks**
+
+Write a function called **validate_brackets**
+
+Arguments: **string**
+
+Return: **boolean**
+
+representing whether or not the brackets in the string are balanced
+
+&nbsp;
+
+### **WhiteBoard**
+
+![CC13](pictures/CC13.jpg)
+
+&nbsp;
+
+### **PR Link**
+
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/41>

@@ -65,8 +65,8 @@ class Queue():
 
   def enqueue(self,value):
     node = Node(value)
-    node.next = self.front
-    self.front = node
+    self.rear.next = node
+    self.rear = node
 
   def dequeue(self):
     if self.peek:
@@ -127,6 +127,120 @@ class PseudoQueue():
     else:
       raise Exception('Queue is Empty')
 
+
+# CC12
+class Cat():
+  def __init__(self, name="",next=None):
+      self.name = name
+      self.next = next
+      self.type='cat'
+
+  def __str__(self):
+        return str(self.name)
+
+class Dog():
+  def __init__(self, name="",next=None):
+      self.name = name
+      self.next = next
+      self.type='dog'
+
+  def __str__(self):
+        return str(self.name)
+
+class AnimalShelter():
+  def __init__(self, animal = None):
+      self.front = animal
+      self.rear = animal
+
+  def __str__(self):
+        current = self.front
+        string = ''
+
+        while current:
+            string+=str(current)+' -> '
+            current=current.next
+        string+="None"
+        return string
+
+  def enqueue(self,name,type):
+    if type == 'cat':
+      node = Cat(name)
+      self.rear.next = node
+      self.rear = node
+    elif type == 'dog':
+      node = Dog(name)
+      self.rear.next = node
+      self.rear = node
+
+  def dequeue(self, pref):
+    if pref == 'dog':
+      current = self.front
+      prev = current
+      while current.type != 'dog':
+        prev = current
+        current=current.next
+
+      if prev != self.front:
+        prev.next = current.next
+        current.next=None
+      else:
+        prev=prev.next
+        current.next = None
+        self.front=prev
+      return current.name
+
+    elif pref == 'cat':
+      current = self.front
+      prev = current
+      while current.type != 'cat':
+        prev = current
+        current=current.next
+
+      if prev != self.front:
+        prev.next = current.next
+        current.next=None
+      else:
+        prev=prev.next
+        current.next = None
+        self.front=prev
+      return current.name
+
+    else:
+      return 'null'
+
+  def peek(self):
+    if self.peek:
+      return (self.front.name)
+    else:
+      raise Exception('Animal Shelter is Empty')
+
+
+# CC13
+def validate_brackets(string):
+
+  starting_symbols = ["[","{","("]
+  ending_symbols = ["]","}",")"]
+  check_list = []
+
+  for i in string:
+    if i in starting_symbols:
+      check_list.append(i)
+
+    elif i in ending_symbols:
+      index = ending_symbols.index(i)
+
+      if ((len(check_list) > 0) and (starting_symbols[index] == check_list[len(check_list)-1])):
+        check_list.pop()
+      else:
+        return False
+
+  if len(check_list) == 0:
+    return True
+  else:
+    return False
+
+
+
 if __name__=="__main__":
 
 # CC10
@@ -170,11 +284,32 @@ if __name__=="__main__":
   node1.next=node2
   node2.next=node3
   node3.next=node4
-  print(psuedo_queue)
+  # print(psuedo_queue)
   psuedo_queue.enqueue(5)
   psuedo_queue.enqueue(5)
-  print(psuedo_queue)
-  print(psuedo_queue.dequeue())
-  print(psuedo_queue)
-  print(psuedo_queue.dequeue())
-  print(psuedo_queue)
+  # print(psuedo_queue)
+  # print(psuedo_queue.dequeue())
+  # print(psuedo_queue)
+  # print(psuedo_queue.dequeue())
+  # print(psuedo_queue)
+
+# CC12
+  animal1 = Cat('cat1')
+  animal2 = Cat('cat2')
+  animal3 = Dog('dog1')
+  animal4 = Dog('dog2')
+  animal_shelter=AnimalShelter()
+  animal_shelter.front=animal1
+  animal_shelter.rear=animal4
+  animal1.next=animal2
+  animal2.next=animal3
+  animal3.next=animal4
+  # print(animal_shelter)
+  animal_shelter.enqueue('dog3','dog')
+  # print(animal_shelter)
+  # print(animal_shelter.dequeue('cat'))
+  # print(animal_shelter)
+
+# CC13
+  print(validate_brackets('[({}]'))
+  print(validate_brackets('()[[Extra Characters]]'))
