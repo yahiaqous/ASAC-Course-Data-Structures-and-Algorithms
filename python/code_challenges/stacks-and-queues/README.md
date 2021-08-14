@@ -1,8 +1,28 @@
 # Stacks and Queues
 
-## Code Challenge 12
+## Code Challenge 10
 
-### **Challenge Summary**
+### **Feature Tasks**
+
+Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue and their methods
+
+&nbsp;
+
+### **WhiteBoard**
+
+![CC10](pictures/CC10.jpg)
+
+&nbsp;
+
+### **PR Link**
+
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/44>
+
+&nbsp;
+
+## Code Challenge 11
+
+### **Feature Tasks**
 
 Create a new class called pseudo queue.
 
@@ -12,43 +32,15 @@ Create a new class called pseudo queue.
 
 - Internally, utilize 2 Stack instances to create and manage the queue
 
-### **Whiteboard Process**
+### **WhiteBoard**
 
 ![CC11 Whiteboard](pictures/CC11.jpg)
 
-### **Solution**
+&nbsp;
 
-Try this code:
+### **PR Link**
 
-    if **name**=="**main**":
-
-      psuedo_queue = PseudoQueue()
-
-      psuedo_queue.front=node1
-
-      psuedo_queue.rear=node4
-
-      node1.next=node2
-
-      node2.next=node3
-
-      node3.next=node4
-
-      print(psuedo_queue)
-
-      psuedo_queue.enqueue(5)
-
-      psuedo_queue.enqueue(5)
-
-      print(psuedo_queue)
-
-      print(psuedo_queue.dequeue())
-
-      print(psuedo_queue)
-
-      print(psuedo_queue.dequeue())
-
-      print(psuedo_queue)
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/42>
 
 &nbsp;
 
