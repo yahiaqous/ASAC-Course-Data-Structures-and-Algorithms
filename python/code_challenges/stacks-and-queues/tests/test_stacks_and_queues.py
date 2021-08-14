@@ -76,11 +76,12 @@ def test_enqueue_into_queue():
   node2 = Node(2)
   node3 = Node(3)
   queue=Queue()
-  queue.top=node1
+  queue.front=node1
   node1.next=node2
   node2.next=node3
+  queue.rear=node3
   queue.enqueue(4)
-  assert queue.front.value == 4
+  assert queue.rear.value == 4
 
 def test_enqueue_multiple_values_into_queue():
   node1 = Node(1)
@@ -90,10 +91,11 @@ def test_enqueue_multiple_values_into_queue():
   queue.front=node1
   node1.next=node2
   node2.next=node3
+  queue.rear=node3
   queue.enqueue(5)
-  assert queue.front.value == 5
+  assert queue.rear.value == 5
   queue.enqueue(7)
-  assert queue.front.value == 7
+  assert queue.rear.value == 7
 
 def test_dequeue_out_of_queue():
   node1 = Node(1)
