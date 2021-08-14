@@ -44,6 +44,26 @@ Create a new class called pseudo queue.
 
 &nbsp;
 
+## Code Challenge 12
+
+### **Feature Tasks**
+
+Create a class called AnimalShelter which holds only dogs and cats. Implement enqueue and dequeue methods.
+
+&nbsp;
+
+### **WhiteBoard**
+
+![CC12](pictures/CC12.jpg)
+
+&nbsp;
+
+### **PR Link**
+
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/46>
+
+&nbsp;
+
 ## Code Challenge 13
 
 ### **Feature Tasks**
