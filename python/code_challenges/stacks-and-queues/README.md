@@ -40,7 +40,7 @@ Create a new class called pseudo queue.
 
 ### **PR Link**
 
-<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/42>
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/45>
 
 &nbsp;
 
