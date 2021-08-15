@@ -12,63 +12,75 @@ class BinaryTree():
       self.root = node
 
 # CC15
-  pre_order_output = []
+  def pre_order(self):
+    pre_order_output = []
 
-  def pre_order(self,root):
-    self.pre_order_output.append(root.value)
-    if (root.left): self.pre_order(root.left)
-    if (root.right): self.pre_order(root.right)
-    return self.pre_order_output
+    def walk(root):
+      pre_order_output.append(root.value)
+      if (root.left): walk(root.left)
+      if (root.right): walk(root.right)
+
+    walk(self.root)
+    return pre_order_output
+
+  def in_order(self):
+    in_order_output = []
+
+    def walk(root):
+      if root.left: walk(root.left)
+      in_order_output.append(root.value)
+      if root.right: walk(root.right)
+
+    walk(self.root)
+    return in_order_output
 
 
-  in_order_output = []
+  def post_order(self):
+    post_order_output = []
 
-  def in_order(self,root):
-    if root.left: self.in_order(root.left)
-    self.in_order_output.append(root.value)
-    if root.right: self.in_order(root.right)
-    return self.in_order_output
+    def walk(root):
+      if root.left: walk(root.left)
+      if root.right: walk(root.right)
+      post_order_output.append(root.value)
 
-  post_order_output = []
-
-  def post_order(self,root):
-    if root.left: self.post_order(root.left)
-    if root.right: self.post_order(root.right)
-    self.post_order_output.append(root.value)
-    return self.post_order_output
+    walk(self.root)
+    return post_order_output
 
 class BinarySearchTree(BinaryTree):
   def __init__(self, node=None):
       BinaryTree.__init__(self,node=None)
 
-  def add(self,value,root):
+
+  def add(self,value):
     node = Node(value)
+    def walk(root):
 
-    if value <= root.value:
-      if root.left: self.add(value,root.left)
-      else: root.left = node
+      if value <= root.value:
+        if root.left: walk(root.left)
+        else: root.left = node
+      elif value >= root.value:
+        if root.right: walk(root.right)
+        else: root.right = node
 
-    elif value >= root.value:
-      if root.right: self.add(value,root.right)
-      else: root.right = node
+    walk(self.root)
 
-  compare = 0
-  def contains(self,value,root):
-    self.compare = value
+  def contains(self,value):
+    compare = 0
+    def walk(root):
+      nonlocal compare
+      compare = value
 
-    if self.compare == root.value: self.compare = True
+      if compare == root.value: compare = True
+      elif compare < root.value:
+        if root.left: walk(root.left)
+        else: return False
+      elif value > root.value:
+        if root.right: walk(root.right)
+        else: return False
 
-    elif self.compare < root.value:
-      if root.left: self.contains(self.compare,root.left)
+      if compare == True: return True
       else: return False
-
-    elif value > root.value:
-      if root.right: self.contains(self.compare,root.right)
-      else: return False
-
-    if self.compare == True: return True
-    else: return False
-
+    return (walk(self.root))
 
 
 
@@ -85,7 +97,7 @@ if __name__=="__main__":
   node8 = Node(15)
   node9 = Node(22)
   node10 = Node(105)
-  # binary_tree=BinaryTree()
+  binary_tree=BinaryTree()
   # binary_tree.root=node1
   node1.left = node2
   node1.right = node3
@@ -96,13 +108,13 @@ if __name__=="__main__":
   node5.left = node8
   node5.right = node9
   node7.right = node10
-  # print (binary_tree.pre_order(node1))
-  # print (binary_tree.in_order(node1))
-  # print (binary_tree.post_order(node1))
+  # print (binary_tree.pre_order())
+  # print (binary_tree.in_order())
+  # print (binary_tree.post_order())
   binary_search_tree = BinarySearchTree()
   binary_search_tree.root=node1
-  print (binary_search_tree.pre_order(node1))
-  binary_search_tree.add(50,node1)
-  print (binary_search_tree.pre_order(node1))
-  print(binary_search_tree.contains(50,node1))
+  print (binary_search_tree.pre_order())
+  binary_search_tree.add(50)
+  print (binary_search_tree.pre_order())
+  print(binary_search_tree.contains(50))
 

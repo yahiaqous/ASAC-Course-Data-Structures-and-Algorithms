@@ -37,7 +37,7 @@ def test_return_a_collection_from_a_preorder_traversal():
   node2.left = node4
   node2.right = node5
   node3.left = node6
-  pre_order = binary_tree.pre_order(node1)
+  pre_order = binary_tree.pre_order()
   assert pre_order == ['A', 'B', 'D', 'E', 'C', 'F']
 
 def test_return_a_collection_from_a_inorder_traversal():
@@ -54,7 +54,7 @@ def test_return_a_collection_from_a_inorder_traversal():
   node2.left = node4
   node2.right = node5
   node3.left = node6
-  in_order = binary_tree.in_order(node1)
+  in_order = binary_tree.in_order()
   assert in_order == ['D', 'B', 'E', 'A', 'F', 'C']
 
 def test_return_a_collection_from_a_postorder_traversal():
@@ -71,7 +71,7 @@ def test_return_a_collection_from_a_postorder_traversal():
   node2.left = node4
   node2.right = node5
   node3.left = node6
-  post_order = binary_tree.post_order(node1)
+  post_order = binary_tree.post_order()
   assert post_order == ['D', 'E', 'B', 'F', 'C', 'A']
 
 
