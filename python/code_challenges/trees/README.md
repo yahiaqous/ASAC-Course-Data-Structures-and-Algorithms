@@ -1,50 +1,77 @@
 # Trees
 
-## Challenge Summary
+## Code Challenge 15
 
-### **Node**
+### **Feature Tasks**
 
-- Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
+- **Node**
 
-### **Binary Tree**
+  - Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
 
-- Create a Binary Tree class
+- **Binary Tree**
 
-  - Define a method for each of the depth first traversals:
+  - Create a Binary Tree class
 
-    - pre order
-    - in order
-    - post order
+    - Define a method for each of the depth first traversals:
 
-  - which returns an array of the values, ordered appropriately.
+      - pre order
+      - in order
+      - post order
 
-- Any exceptions or errors that come from your code should be semantic, capture-able errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
+    - which returns an array of the values, ordered appropriately.
 
-### **Binary Search Tree**
+  - Any exceptions or errors that come from your code should be semantic, capture-able errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
 
-- Create a Binary Search Tree class
+- **Binary Search Tree**
 
-  - This class should be a sub-class (or your languages equivalent) of the Binary Tree Class, with the following additional methods:
+  - Create a Binary Search Tree class
 
-  - Add
+    - This class should be a sub-class (or your languages equivalent) of the Binary Tree Class, with the following additional methods:
 
-    - Arguments: value
-    - Return: nothing
-    - Adds a new node with that value in the correct location in the binary search tree.
+    - Add
 
-  - Contains
+      - Arguments: value
+      - Return: nothing
+      - Adds a new node with that value in the correct location in the binary search tree.
 
-    - Argument: value
-    - Returns: boolean indicating whether or not the value is in the tree at least once.
+    - Contains
+
+      - Argument: value
+      - Returns: boolean indicating whether or not the value is in the tree at least once.
 
 &nbsp;
 
-## Whiteboard Process
+### **Whiteboard Process**
 
 ![CC15](pictures/CC15.jpg)
 
 &nbsp;
 
-## PR Link
+### **PR Link**
 
 <https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/47>
+
+&nbsp;
+
+## Code Challenge 16
+
+### **Feature Tasks**
+
+- Write the following method for the Binary Tree class
+
+  - Define a method for each of the depth first traversals:
+
+    - Arguments: none
+    - Returns: number
+
+&nbsp;
+
+### **Whiteboard Process**
+
+![CC16](pictures/CC16.jpg)
+
+&nbsp;
+
+### **PR Link**
+
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/48>

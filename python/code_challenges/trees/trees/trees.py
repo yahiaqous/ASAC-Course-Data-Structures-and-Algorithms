@@ -46,11 +46,21 @@ class BinaryTree():
     walk(self.root)
     return post_order_output
 
+# CC16
+  def max_value(self):
+    tree = self.pre_order()
+    max = self.root.value
+    for i in tree:
+      if i > max: max = i
+    return max
+
+
+
 class BinarySearchTree(BinaryTree):
   def __init__(self, node=None):
       BinaryTree.__init__(self,node=None)
 
-
+# CC15
   def add(self,value):
     node = Node(value)
     def walk(root):
@@ -98,7 +108,7 @@ if __name__=="__main__":
   node9 = Node(22)
   node10 = Node(105)
   binary_tree=BinaryTree()
-  # binary_tree.root=node1
+  binary_tree.root=node1
   node1.left = node2
   node1.right = node3
   node2.left = node4
@@ -108,13 +118,15 @@ if __name__=="__main__":
   node5.left = node8
   node5.right = node9
   node7.right = node10
-  # print (binary_tree.pre_order())
-  # print (binary_tree.in_order())
-  # print (binary_tree.post_order())
-  binary_search_tree = BinarySearchTree()
-  binary_search_tree.root=node1
-  print (binary_search_tree.pre_order())
-  binary_search_tree.add(50)
-  print (binary_search_tree.pre_order())
-  print(binary_search_tree.contains(50))
+  print (binary_tree.pre_order())
+  print (binary_tree.in_order())
+  print (binary_tree.post_order())
+  # binary_search_tree = BinarySearchTree()
+  # binary_search_tree.root=node1
+  # print (binary_search_tree.pre_order())
+  # binary_search_tree.add(50)
+  # print (binary_search_tree.pre_order())
+  # print(binary_search_tree.contains(50))
 
+# CC16
+  print(binary_tree.max_value())
