@@ -11,7 +11,6 @@ def test_instantiate_a_tree_with_a_single_root_node():
   binary_tree.root=node1
   assert binary_tree.root.value == 'A'
 
-
 def test_add_a_left_child_and_righy_child_to_a_single_root_node():
   binary_tree = BinaryTree
   node1 = Node('A')
@@ -74,4 +73,21 @@ def test_return_a_collection_from_a_postorder_traversal():
   post_order = binary_tree.post_order()
   assert post_order == ['D', 'E', 'B', 'F', 'C', 'A']
 
+
+# CC16
+def test_return_maximum_value():
+  binary_tree=BinaryTree()
+  node1 = Node(1)
+  node2 = Node(2)
+  node3 = Node(8)
+  node4 = Node(84)
+  node5 = Node(66)
+  node6 = Node(14)
+  binary_tree.root=node1
+  node1.left = node2
+  node1.right = node3
+  node2.left = node4
+  node2.right = node5
+  node3.left = node6
+  assert binary_tree.max_value()==84
 
