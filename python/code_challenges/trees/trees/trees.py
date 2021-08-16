@@ -3,6 +3,7 @@ class Node():
       self.value = value
       self.left = left
       self.right = right
+      self.next = None
 
   def __str__(self):
       return str(self.value)
@@ -93,6 +94,87 @@ class BinarySearchTree(BinaryTree):
     return (walk(self.root))
 
 
+# CC17
+class Queue():
+  def __init__(self, node = None):
+      self.front = node
+      self.rear = node
+
+  def __str__(self):
+        current = self.front
+        string = ''
+
+        while current:
+            string+=str(current)+' -> '
+            current=current.next
+        string+="None"
+        return string
+
+  # def enqueue(self,value):
+  #   node = Node(value)
+  #   self.rear.next = node
+  #   self.rear = node
+
+  def enqueue(self,node):
+        # node=Node(value)
+        if self.is_empty():
+            self.front=node
+            self.rear=node
+        self.rear.next=node
+        self.rear=node
+
+  def dequeue(self):
+    if self.peek:
+      current = self.front
+      self.front = current.next
+      current.next=None
+      return current
+    else:
+      raise Exception('Queue is Empty')
+
+    # if self.is_empty():
+    #     raise Exception("empty equeue")
+    # if self.front==self.rear:
+    #     temp=self.front
+    #     self.front=None
+    #     self.rear=None
+    #     return temp.value
+    # else:
+    #     temp=self.front
+    #     self.front=self.front.next
+    #     temp.next=None
+    #     return temp.value
+
+
+  def peek(self):
+    if self.front:
+      return (self.front.value)
+    else:
+      raise Exception('Queue is Empty')
+
+  def is_empty(self):
+    return (self.front == None or self.rear == None)
+
+
+def breadth_first(tree):
+  if tree.root:
+    root = tree.root
+    queue = Queue()
+    queue.enqueue(root)
+    # queue.front = root
+    # queue.rear = root
+    output_list = []
+
+    try:
+      while queue.peek():
+        front = queue.dequeue()
+        output_list.append(front.value)
+        if front.left: queue.enqueue(front.left)
+        if front.right: queue.enqueue(front.right)
+    except: return output_list
+
+  else: raise Exception ('Tree is empty')
+
 
 if __name__=="__main__":
 
@@ -118,9 +200,9 @@ if __name__=="__main__":
   node5.left = node8
   node5.right = node9
   node7.right = node10
-  print (binary_tree.pre_order())
-  print (binary_tree.in_order())
-  print (binary_tree.post_order())
+  # print (binary_tree.pre_order())
+  # print (binary_tree.in_order())
+  # print (binary_tree.post_order())
   # binary_search_tree = BinarySearchTree()
   # binary_search_tree.root=node1
   # print (binary_search_tree.pre_order())
@@ -129,4 +211,7 @@ if __name__=="__main__":
   # print(binary_search_tree.contains(50))
 
 # CC16
-  print(binary_tree.max_value())
+  # print(binary_tree.max_value())
+
+# CC17
+  print (breadth_first(binary_tree))
