@@ -75,3 +75,25 @@
 ### **PR Link**
 
 <https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/48>
+
+&nbsp;
+
+## Code Challenge 17
+
+### **Feature Tasks**
+
+- Write a function called breadth first
+- Arguments: tree
+- Return: list of all values in the tree, in the order they were encountered
+
+&nbsp;
+
+### **Whiteboard Process**
+
+<!-- ![CC16](pictures/CC16.jpg) -->
+
+&nbsp;
+
+### **PR Link**
+
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/49>
