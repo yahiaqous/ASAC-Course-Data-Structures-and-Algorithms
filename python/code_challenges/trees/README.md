@@ -90,7 +90,7 @@
 
 ### **Whiteboard Process**
 
-<!-- ![CC16](pictures/CC16.jpg) -->
+<!-- ![CC17](pictures/CC17.jpg) -->
 
 &nbsp;
 
