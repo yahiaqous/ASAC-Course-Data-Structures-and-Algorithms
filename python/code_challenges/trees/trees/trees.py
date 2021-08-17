@@ -12,6 +12,7 @@ class BinaryTree():
   def __init__(self, node=None):
       self.root = node
 
+
 # CC15
   def pre_order(self):
     pre_order_output = []
@@ -44,8 +45,10 @@ class BinaryTree():
       if root.right: walk(root.right)
       post_order_output.append(root.value)
 
+
     walk(self.root)
     return post_order_output
+
 
 # CC16
   def max_value(self):
@@ -55,11 +58,10 @@ class BinaryTree():
       if i > max: max = i
     return max
 
-
-
 class BinarySearchTree(BinaryTree):
   def __init__(self, node=None):
       BinaryTree.__init__(self,node=None)
+
 
 # CC15
   def add(self,value):
@@ -176,6 +178,24 @@ def breadth_first(tree):
   else: raise Exception ('Tree is empty')
 
 
+# CC18
+def tree_fizz_buzz(tree):
+  if tree.root:
+    node = tree.root
+    def walk(node):
+      if node.value%15 == 0: node.value = 'FizzBuzz'
+      elif node.value%5 == 0: node.value = 'Buzz'
+      elif node.value%3 == 0: node.value = 'Fizz'
+      else: node.value = str(node.value)
+
+      if (node.left): walk(node.left)
+      if (node.right): walk(node.right)
+    walk(node)
+    return tree.pre_order()
+
+  else: raise Exception ('Tree is empty')
+
+
 if __name__=="__main__":
 
 # CC15
@@ -210,8 +230,14 @@ if __name__=="__main__":
   # print (binary_search_tree.pre_order())
   # print(binary_search_tree.contains(50))
 
+
 # CC16
   # print(binary_tree.max_value())
 
+
 # CC17
-  print (breadth_first(binary_tree))
+  # print (breadth_first(binary_tree))
+
+# CC18
+  print (tree_fizz_buzz(binary_tree))
+
