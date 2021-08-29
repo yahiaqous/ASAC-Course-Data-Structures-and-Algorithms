@@ -29,10 +29,10 @@
 
 ### **Whiteboard Process**
 
-<!-- ![CC18](pictures/CC18.jpg) -->
+![CC26](pictures/CC26.jpg)
 
 &nbsp;
 
 ### **PR Link**
 
-<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/50>
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/51>
