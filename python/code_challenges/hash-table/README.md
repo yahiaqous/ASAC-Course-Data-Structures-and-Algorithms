@@ -38,3 +38,27 @@ Implement a Hashtable Class with the following methods:
 <https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/54>
 
 &nbsp;
+
+## Code Challenge 30
+
+### **Feature Tasks**
+
+- Write a function called repeated word that finds the first word to occur more than once in a string
+
+- Arguments: string
+
+- Return: string
+
+&nbsp;
+
+### **Whiteboard Process**
+
+![CC31](pictures/CC31.jpg)
+
+&nbsp;
+
+### **PR Link**
+
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/55>
+
+&nbsp;
