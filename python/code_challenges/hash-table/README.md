@@ -39,7 +39,7 @@ Implement a Hashtable Class with the following methods:
 
 &nbsp;
 
-## Code Challenge 30
+## Code Challenge 31
 
 ### **Feature Tasks**
 
@@ -60,5 +60,29 @@ Implement a Hashtable Class with the following methods:
 ### **PR Link**
 
 <https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/55>
+
+&nbsp;
+
+## Code Challenge 32
+
+### **Feature Tasks**
+
+- Write a function called tree intersection
+
+- Arguments: two binary trees
+
+- Return: array
+
+&nbsp;
+
+### **Whiteboard Process**
+
+![CC32](pictures/CC32.jpg)
+
+&nbsp;
+
+### **PR Link**
+
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/56>
 
 &nbsp;
