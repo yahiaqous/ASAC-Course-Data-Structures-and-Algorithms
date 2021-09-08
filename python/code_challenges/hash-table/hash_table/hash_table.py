@@ -71,6 +71,32 @@ def tree_intersection(tree1,tree2):
   return result
 
 
+# CC34
+def biggest_repeat(string):
+  hash_table = HashTable()
+  string = string.replace(',',' ').replace('.',' ').replace(':',' ').split(' ')
+  print(string)
+
+  biggest_value = 0
+  biggest_key = ''
+
+  for i in string:
+    i = i.lower()
+    if i and hash_table.contains(i):
+      value = hash_table.get(i)
+      value+=1
+      index = hash_table.hash(i)
+      hash_table._buckets[index].head = Node([i,value])
+      if value > biggest_value:
+        biggest_value = value
+        biggest_key = i
+    elif i:
+      value=1
+      hash_table.add(i,value)
+
+  return biggest_key
+
+
 
 if __name__ =='__main__':
 # CC30
@@ -78,19 +104,19 @@ if __name__ =='__main__':
   hash_table.add('yahia','24')
   hash_table.add('yaiha','30')
   hash_table.add('person','age')
-  print(hash_table.get('yahia'))
-  print(hash_table.get('yaiha'))
-  print(hash_table.get('person'))
-  print(hash_table.get('not'))
-  print(hash_table.contains('yahia'))
-  print(hash_table.contains('yaiha'))
-  print(hash_table.contains('test'))
-  print(hash_table.hash('8000'))
+  # print(hash_table.get('yahia'))
+  # print(hash_table.get('yaiha'))
+  # print(hash_table.get('person'))
+  # print(hash_table.get('not'))
+  # print(hash_table.contains('yahia'))
+  # print(hash_table.contains('yaiha'))
+  # print(hash_table.contains('test'))
+  # print(hash_table.hash('8000'))
 
 # CC31
-  print(repeated_word("Once upon a time, there was a brave princess who..."))
-  print(repeated_word("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."))
-  print(repeated_word("It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."))
+  # print(repeated_word("Once upon a time, there was was was was was a brave princess who... who who"))
+  # print(repeated_word("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."))
+  # print(repeated_word("It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."))
 
 # CC32
   node1 = Node(150)
@@ -141,4 +167,6 @@ if __name__ =='__main__':
   node_seven.left = node_ten
   node_seven.right = node_eleven
 
-  print(tree_intersection(binary_tree1,binary_tree2))
+  # print(tree_intersection(binary_tree1,binary_tree2))
+
+  print(biggest_repeat("Once upon a time, there was was was was was a brave princess who... who who"))
