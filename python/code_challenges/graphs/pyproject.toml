@@ -1,12 +1,11 @@
 [tool.poetry]
-name = "hash-table"
+name = "graphs"
 version = "0.1.0"
 description = ""
 authors = ["Yahia Qous <yahiaqous@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-requests = "^2.26.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
