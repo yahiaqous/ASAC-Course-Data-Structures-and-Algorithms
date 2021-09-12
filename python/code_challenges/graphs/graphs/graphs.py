@@ -1,3 +1,6 @@
+from queue import Queue
+from typing import Set
+
 class Node:
   def __init__(self, value):
     self.value = value
@@ -12,7 +15,7 @@ class Edge:
     self.weight = weight
 
   def __str__(self):
-    return str(self.weight)
+    return str(self.node)
 
 
 class Graph:
@@ -60,6 +63,44 @@ class Graph:
   def size(self):
     return len(self._adjacency_list)
 
+# CC36
+  def breadth_first(self,node):
+    result =[]
+    result.append(node.value)
+
+    current_node = node
+    def walk(node):
+      edge = self._adjacency_list[node]
+      print(edge)
+      child_node = edge[0].node.value
+      for i in edge:
+        child_node = i.node.value
+        print(child_node)
+        if child_node not in result: result.append(child_node)
+        else:continue
+      for i in edge:
+        if i.node.value not in result: walk(i.node)
+    walk(node)
+    return result
+
+  # def breadth_first(self,node):
+  #   nodes = []
+  #   breadth = Queue()
+  #   visited = []
+
+  #   breadth.enqueue(node)
+  #   visited.append(breadth.front)
+
+  #   while breadth:
+  #     front = breadth.dequeue()
+  #     nodes.append(front)
+
+  #     for i in nodes:
+  #       if i not in visited:
+  #         visited.append(i)
+  #         breadth.enqueue(i)
+
+  #   return nodes
 
 
 if __name__=='__main__':
@@ -96,6 +137,7 @@ if __name__=='__main__':
   graph.add_edge(node_f,node_e,7)
 
   print(graph)
+  # print(graph._adjacency_list[node_a])
   print(graph.get_nodes())
   print(graph.get_neighbors(node_a))
   print(graph.get_neighbors(node_b))
@@ -104,3 +146,4 @@ if __name__=='__main__':
   print(graph.get_neighbors(node_e))
   print(graph.get_neighbors(node_f))
   print(graph.size())
+  print(graph.breadth_first(node_a))
