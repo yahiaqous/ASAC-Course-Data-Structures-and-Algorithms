@@ -1,4 +1,4 @@
-from graphs.graphs import Node, Edge, Graph
+from graphs.graphs import Node, Edge, Graph, business_trip
 
 # CC35
 def test_node_can_be_successfully_added_to_the_graph():
@@ -80,7 +80,48 @@ def test_a_graph_with_only_one_node_and_edge_can_be_properly_returned():
   graph.add_edge(node_a,node_a,1)
   assert graph._adjacency_list
 
-
 def test_an_empty_graph_properly_returns_null():
   graph = Graph()
   assert graph._adjacency_list == {}
+
+# CC37
+def test_bussiness_trip():
+  node_pandora = Node('pandora')
+  node_arendelle = Node('arendelle')
+  node_metroville = Node('metroville')
+  node_monstropolis = Node('monstropolis')
+  node_naboo = Node('naboo')
+  node_narnia = Node('narnia')
+
+  trip = Graph()
+
+  trip.add_node(node_pandora)
+  trip.add_node(node_arendelle)
+  trip.add_node(node_metroville)
+  trip.add_node(node_monstropolis)
+  trip.add_node(node_naboo)
+  trip.add_node(node_narnia)
+
+  trip.add_edge(node_pandora,node_arendelle,150)
+  trip.add_edge(node_pandora,node_metroville,82)
+  trip.add_edge(node_arendelle,node_pandora,150)
+  trip.add_edge(node_arendelle,node_metroville,99)
+  trip.add_edge(node_arendelle,node_monstropolis,42)
+  trip.add_edge(node_metroville,node_pandora,82)
+  trip.add_edge(node_metroville,node_arendelle,99)
+  trip.add_edge(node_metroville,node_monstropolis,105)
+  trip.add_edge(node_metroville,node_naboo,26)
+  trip.add_edge(node_metroville,node_narnia,37)
+  trip.add_edge(node_monstropolis,node_arendelle,42)
+  trip.add_edge(node_monstropolis,node_metroville,105)
+  trip.add_edge(node_monstropolis,node_naboo,73)
+  trip.add_edge(node_naboo,node_monstropolis,73)
+  trip.add_edge(node_naboo,node_metroville,26)
+  trip.add_edge(node_naboo,node_narnia,250)
+  trip.add_edge(node_narnia,node_metroville,37)
+  trip.add_edge(node_narnia,node_naboo,250)
+
+  assert business_trip(trip,['Metroville', 'Pandora' ]) == 82
+  assert business_trip(trip,['Arendelle', 'Monstropolis', 'Naboo']) == 115
+  assert business_trip(trip,['Naboo', 'Pandora']) == None
+  assert business_trip(trip,['Narnia', 'Arendelle', 'Naboo']) == None

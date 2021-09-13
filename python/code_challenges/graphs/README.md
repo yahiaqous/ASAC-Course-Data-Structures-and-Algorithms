@@ -42,3 +42,28 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 <https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/57>
 
 &nbsp;
+
+## Code Challenge 37
+
+### **Feature Tasks**
+
+- Determine whether the trip is possible with direct flights, and how much it would cost.
+
+  - Write a function called business trip:
+
+    - Arguments: graph, array of city names
+    - Returns: cost or null
+
+&nbsp;
+
+### **Whiteboard Process**
+
+![CC37](pictures/CC37.jpg)
+
+&nbsp;
+
+### **PR Link**
+
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/59>
+
+&nbsp;
