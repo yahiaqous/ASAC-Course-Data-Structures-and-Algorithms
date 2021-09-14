@@ -1,5 +1,4 @@
 from queue import Queue
-from typing import Set
 
 class Node:
   def __init__(self, value):
@@ -64,7 +63,7 @@ class Graph:
     return len(self._adjacency_list)
 
 # CC36
-  def breadth_first(self,node):
+  # def breadth_first(self,node):
     result =[]
     result.append(node.value)
 
@@ -83,25 +82,42 @@ class Graph:
     walk(node)
     return result
 
-  # def breadth_first(self,node):
-  #   nodes = []
-  #   breadth = Queue()
-  #   visited = []
+  def breadth_first(self,node):
+    nodes = []
+    breadth = Queue()
+    visited = []
 
-  #   breadth.enqueue(node)
-  #   visited.append(breadth.front)
+    breadth.enqueue(node)
+    visited.append(breadth.front)
 
-  #   while breadth:
-  #     front = breadth.dequeue()
-  #     nodes.append(front)
+    while breadth:
+      front = breadth.dequeue()
+      nodes.append(front)
 
-  #     for i in nodes:
-  #       if i not in visited:
-  #         visited.append(i)
-  #         breadth.enqueue(i)
+      for i in nodes:
+        if i not in visited:
+          visited.append(i)
+          breadth.enqueue(i)
 
-  #   return nodes
+    return nodes
 
+# CC38
+  def depth_first(self,node):
+    result =[]
+    result.append(node.value)
+
+    def walk(node):
+      edges = self._adjacency_list[node]
+      for i in edges:
+        child_node = i.node.value
+        if child_node not in result:
+          result.append(child_node)
+          walk(i.node)
+    walk(node)
+    return result
+
+
+# CC37
 def business_trip(graph,array):
   cost = 0
 
@@ -124,52 +140,56 @@ def business_trip(graph,array):
   else: return None
 
 
+
+
 if __name__=='__main__':
 # CC35
-  # node_pandora = Node('a')
-  # node_arendelle = Node('b')
-  # node_metreville = Node('c')
-  # node_monstropolis = Node('d')
-  # node_narnia = Node('e')
-  # node_naboo = Node('f')
+  # node_a = Node('a')
+  # node_b = Node('b')
+  # node_c = Node('c')
+  # node_d = Node('d')
+  # node_e = Node('e')
+  # node_f = Node('f')
 
   # graph = Graph()
 
-  # graph.add_node(node_pandora)
-  # graph.add_node(node_arendelle)
-  # graph.add_node(node_metreville)
-  # graph.add_node(node_monstropolis)
-  # graph.add_node(node_narnia)
-  # graph.add_node(node_naboo)
+  # graph.add_node(node_a)
+  # graph.add_node(node_b)
+  # graph.add_node(node_c)
+  # graph.add_node(node_d)
+  # graph.add_node(node_e)
+  # graph.add_node(node_f)
 
-  # graph.add_edge(node_pandora,node_metreville,1)
-  # graph.add_edge(node_pandora,node_monstropolis,2)
-  # graph.add_edge(node_arendelle,node_metreville,3)
-  # graph.add_edge(node_arendelle,node_naboo,4)
-  # graph.add_edge(node_metreville,node_pandora,1)
-  # graph.add_edge(node_metreville,node_arendelle,3)
-  # graph.add_edge(node_metreville,node_narnia,5)
-  # graph.add_edge(node_monstropolis,node_pandora,2)
-  # graph.add_edge(node_monstropolis,node_narnia,6)
-  # graph.add_edge(node_narnia,node_metreville,5)
-  # graph.add_edge(node_narnia,node_monstropolis,6)
-  # graph.add_edge(node_narnia,node_naboo,7)
-  # graph.add_edge(node_naboo,node_arendelle,4)
-  # graph.add_edge(node_naboo,node_narnia,7)
+  # graph.add_edge(node_a,node_c,1)
+  # graph.add_edge(node_a,node_d,2)
+  # graph.add_edge(node_b,node_c,3)
+  # graph.add_edge(node_b,node_f,4)
+  # graph.add_edge(node_c,node_a,1)
+  # graph.add_edge(node_c,node_b,3)
+  # graph.add_edge(node_c,node_e,5)
+  # graph.add_edge(node_d,node_a,2)
+  # graph.add_edge(node_d,node_e,6)
+  # graph.add_edge(node_e,node_c,5)
+  # graph.add_edge(node_e,node_d,6)
+  # graph.add_edge(node_e,node_f,7)
+  # graph.add_edge(node_f,node_b,4)
+  # graph.add_edge(node_f,node_e,7)
 
   # print(graph)
-  # # print(graph._adjacency_list[node_a])
+  # print(graph._adjacency_list[node_a])
   # print(graph.get_nodes())
-  # print(graph.get_neighbors(node_pandora))
-  # print(graph.get_neighbors(node_arendelle))
-  # print(graph.get_neighbors(node_metreville))
-  # print(graph.get_neighbors(node_monstropolis))
-  # print(graph.get_neighbors(node_narnia))
-  # print(graph.get_neighbors(node_naboo))
+  # print(graph.get_neighbors(node_a))
+  # print(graph.get_neighbors(node_b))
+  # print(graph.get_neighbors(node_c))
+  # print(graph.get_neighbors(node_d))
+  # print(graph.get_neighbors(node_e))
+  # print(graph.get_neighbors(node_f))
   # print(graph.size())
 
+
 #CC36
-  # print(graph.breadth_first(node_pandora))
+  # print(graph.breadth_first(node_a))
+
 
 # CC37
   node_pandora = Node('pandora')
@@ -212,19 +232,62 @@ if __name__=='__main__':
   trip.add_edge(node_narnia,node_metroville,37)
   trip.add_edge(node_narnia,node_naboo,250)
 
-  print(trip)
-  # print(graph._adjacency_list[node_a])
-  print(trip.get_nodes())
-  print(trip.get_neighbors(node_pandora))
-  print(trip.get_neighbors(node_arendelle))
-  print(trip.get_neighbors(node_metroville))
-  print(trip.get_neighbors(node_monstropolis))
-  print(trip.get_neighbors(node_narnia))
-  print(trip.get_neighbors(node_naboo))
-  print(trip.size())
+  # print(trip)
+  # # print(graph._adjacency_list[node_a])
+  # print(trip.get_nodes())
+  # print(trip.get_neighbors(node_pandora))
+  # print(trip.get_neighbors(node_arendelle))
+  # print(trip.get_neighbors(node_metroville))
+  # print(trip.get_neighbors(node_monstropolis))
+  # print(trip.get_neighbors(node_narnia))
+  # print(trip.get_neighbors(node_naboo))
+  # print(trip.size())
 
-  print(business_trip(trip,['Metroville', 'Pandora' ]))
-  print(business_trip(trip,['Arendelle', 'Monstropolis', 'Naboo']))
-  print(business_trip(trip,['Naboo', 'Pandora']))
-  print(business_trip(trip,['Narnia', 'Arendelle', 'Naboo']))
+  # print(business_trip(trip,['Metroville', 'Pandora' ]))
+  # print(business_trip(trip,['Arendelle', 'Monstropolis', 'Naboo']))
+  # print(business_trip(trip,['Naboo', 'Pandora']))
+  # print(business_trip(trip,['Narnia', 'Arendelle', 'Naboo']))
 
+
+# CC38
+  node_a = Node('a')
+  node_b = Node('b')
+  node_c = Node('c')
+  node_d = Node('d')
+  node_e = Node('e')
+  node_f = Node('f')
+  node_g = Node('g')
+  node_h = Node('h')
+
+  graph = Graph()
+
+  graph.add_node(node_a)
+  graph.add_node(node_b)
+  graph.add_node(node_c)
+  graph.add_node(node_d)
+  graph.add_node(node_e)
+  graph.add_node(node_f)
+  graph.add_node(node_g)
+  graph.add_node(node_h)
+
+  graph.add_edge(node_a,node_b)
+  graph.add_edge(node_a,node_d)
+  graph.add_edge(node_b,node_a)
+  graph.add_edge(node_b,node_c)
+  graph.add_edge(node_b,node_d)
+  graph.add_edge(node_c,node_b)
+  graph.add_edge(node_c,node_g)
+  graph.add_edge(node_d,node_a)
+  graph.add_edge(node_d,node_b)
+  graph.add_edge(node_d,node_e)
+  graph.add_edge(node_d,node_f)
+  graph.add_edge(node_d,node_h)
+  graph.add_edge(node_e,node_d)
+  graph.add_edge(node_f,node_d)
+  graph.add_edge(node_f,node_h)
+  graph.add_edge(node_g,node_c)
+  graph.add_edge(node_h,node_d)
+  graph.add_edge(node_h,node_f)
+
+  # print(graph)
+  print(graph.depth_first(node_a))
