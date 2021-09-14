@@ -67,3 +67,28 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 <https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/59>
 
 &nbsp;
+
+## Code Challenge 38
+
+### **Feature Tasks**
+
+- Write the following method for the Graph class:
+
+  - depth first:
+
+    - Arguments: Node (Starting point of search)
+    - Returns: A collection of nodes in their pre-order depth-first traversal order
+
+&nbsp;
+
+### **Whiteboard Process**
+
+![CC38](pictures/CC38.jpg)
+
+&nbsp;
+
+### **PR Link**
+
+<https://github.com/YAHIAQOUS/data-structures-and-algorithms/pull/60>
+
+&nbsp;

@@ -125,3 +125,46 @@ def test_bussiness_trip():
   assert business_trip(trip,['Arendelle', 'Monstropolis', 'Naboo']) == 115
   assert business_trip(trip,['Naboo', 'Pandora']) == None
   assert business_trip(trip,['Narnia', 'Arendelle', 'Naboo']) == None
+
+# CC38
+def test_depth_first():
+  node_a = Node('a')
+  node_b = Node('b')
+  node_c = Node('c')
+  node_d = Node('d')
+  node_e = Node('e')
+  node_f = Node('f')
+  node_g = Node('g')
+  node_h = Node('h')
+
+  graph = Graph()
+
+  graph.add_node(node_a)
+  graph.add_node(node_b)
+  graph.add_node(node_c)
+  graph.add_node(node_d)
+  graph.add_node(node_e)
+  graph.add_node(node_f)
+  graph.add_node(node_g)
+  graph.add_node(node_h)
+
+  graph.add_edge(node_a,node_b)
+  graph.add_edge(node_a,node_d)
+  graph.add_edge(node_b,node_a)
+  graph.add_edge(node_b,node_c)
+  graph.add_edge(node_b,node_d)
+  graph.add_edge(node_c,node_b)
+  graph.add_edge(node_c,node_g)
+  graph.add_edge(node_d,node_a)
+  graph.add_edge(node_d,node_b)
+  graph.add_edge(node_d,node_e)
+  graph.add_edge(node_d,node_f)
+  graph.add_edge(node_d,node_h)
+  graph.add_edge(node_e,node_d)
+  graph.add_edge(node_f,node_d)
+  graph.add_edge(node_f,node_h)
+  graph.add_edge(node_g,node_c)
+  graph.add_edge(node_h,node_d)
+  graph.add_edge(node_h,node_f)
+
+  assert(graph.depth_first(node_a)) == ['a', 'b', 'c', 'g', 'd', 'e', 'f', 'h']
